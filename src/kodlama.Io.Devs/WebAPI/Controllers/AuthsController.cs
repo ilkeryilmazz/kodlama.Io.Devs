@@ -22,13 +22,12 @@ namespace WebAPI.Controllers
         [HttpPost("Register")]
         public async Task<ActionResult> Register(RegisterCommand registerCommand)
         {
-            var checkUser = Mediator.Send(new GetUserByEmailQuery() { Email=registerCommand.UserForRegister.Email});
-            if (checkUser==null)
-            {
+        
+           
+            
                 var result = Mediator.Send(registerCommand);
                 return Ok(result);
-            }
-           
+         
             
            
         }

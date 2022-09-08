@@ -1,6 +1,7 @@
 ﻿using Application.Features.Auths.Rules;
 using Application.Features.ProgrammingLanguages.Rules;
 using Application.Features.ProgrammingTechnologies.Rules;
+using Application.Features.UserGithubs.Rules;
 using Application.Features.Users.Rules;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
@@ -27,6 +28,7 @@ namespace Application
             services.AddScoped<ProgrammingLanguageBusinessRules>();
             services.AddScoped<ProgrammingTechnologyBusinessRules>();
             services.AddScoped<UserBusinessRules>();
+            services.AddScoped<UserGithubBusinessRules>();
             services.AddScoped<AuthBusinessRules>(); 
                  services.AddScoped<GetUserByEmailQueryHandler>();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());

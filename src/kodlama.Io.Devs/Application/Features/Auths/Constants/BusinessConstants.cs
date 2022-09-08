@@ -11,5 +11,6 @@ namespace Application.Features.Auths.Constants
         public static string CreatedUserCanNotBeNull = "Created user can not be null";
         public static string PasswordIsFault = "Password is fault";
         public static string UserNotExists = "User not exists";
+        public static string IsUserAlreadyRegistered = "User already registered";
     }
 }

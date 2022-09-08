@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
         }
       
         [HttpPost("Update")]
-        public async Task<ActionResult> Update([FromBody] UpdateProgammingTechnologyCommand updateProgrammingTechnologyCommand, CancellationToken cancellationToken)
+        public async Task<ActionResult> Update([FromBody] UpdateProgrammingTechnologyCommand updateProgrammingTechnologyCommand, CancellationToken cancellationToken)
         {
             var updatedProgrammingLanguage = await Mediator.Send(updateProgrammingTechnologyCommand);
             return Ok(updatedProgrammingLanguage);

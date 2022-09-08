@@ -38,5 +38,13 @@ namespace Application.Features.Auths.Rules
                 throw new BusinessException(BusinessConstants.UserNotExists);
             }
         }
+        public void IsUserAlreadyRegistrated(User user)
+        {
+
+            if (user != null)
+            {
+                throw new BusinessException(BusinessConstants.IsUserAlreadyRegistered);
+            }
+        }
     }
 }

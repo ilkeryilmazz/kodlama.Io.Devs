@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.ProgrammingTechnologies.Commands.UpdateProgrammingTechnology
 {
-    public class UpdateProgammingTechnologyCommand : IRequest<UpdatedProgrammingTechnologyDto>
+    public class UpdateProgrammingTechnologyCommand : IRequest<UpdatedProgrammingTechnologyDto>
     {
         public int Id { get; set; }
         public int ProgrammingLanguageId { get; set; }
@@ -20,7 +20,7 @@ namespace Application.Features.ProgrammingTechnologies.Commands.UpdateProgrammin
         public string Description { get; set; }
         public string ImageUrl { get; set; }
 
-        public class UpdateProgrammingTechnologyCommandHandler : IRequestHandler<UpdateProgammingTechnologyCommand, UpdatedProgrammingTechnologyDto>
+        public class UpdateProgrammingTechnologyCommandHandler : IRequestHandler<UpdateProgrammingTechnologyCommand, UpdatedProgrammingTechnologyDto>
         {
             private readonly IMapper _mapper;
             private readonly IProgrammingTechnologyRepository _programmingTechnologyRepository;
@@ -33,7 +33,7 @@ namespace Application.Features.ProgrammingTechnologies.Commands.UpdateProgrammin
                 _programmingTechnologyBusinessRules = programmingTechnologyBusinessRules;
             }
 
-            public async Task<UpdatedProgrammingTechnologyDto> Handle(UpdateProgammingTechnologyCommand request, CancellationToken cancellationToken)
+            public async Task<UpdatedProgrammingTechnologyDto> Handle(UpdateProgrammingTechnologyCommand request, CancellationToken cancellationToken)
             {
                 await _programmingTechnologyBusinessRules.CheckIfProgrammingTechologyAlreadyExistsOnTable(request.Name);
                 ProgrammingTechnology mappedProgrammingTechnology = _mapper.Map<ProgrammingTechnology>(request);

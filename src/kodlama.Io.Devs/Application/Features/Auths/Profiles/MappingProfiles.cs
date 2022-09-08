@@ -1,6 +1,6 @@
 ﻿using Application.Features.Auths.Commands.RegisterCommand;
 using Application.Features.Auths.Dtos;
-using Application.Features.Users.Commands.CreateUserCommand;
+
 using AutoMapper;
 using Core.Security.Entities;
 using System;

@@ -25,7 +25,7 @@ namespace Application.Features.ProgrammingTechnologies.Profiles
             CreateMap<ProgrammingTechnology, UpdatedProgrammingTechnologyDto>().ReverseMap();
 
             CreateMap<ProgrammingTechnology, ProgrammingTechnologyGetByIdDto>().ReverseMap();
-            CreateMap<ProgrammingTechnology, UpdateProgammingTechnologyCommand>().ReverseMap();
+            CreateMap<ProgrammingTechnology, UpdateProgrammingTechnologyCommand>().ReverseMap();
             CreateMap<IPaginate<ProgrammingTechnology>, ProgrammingTechnologyListModel>().ReverseMap();
             CreateMap<ProgrammingTechnology, ProgrammingTechnologyListDto>()
                 .ForMember(c => c.ProgrammingLanguageName, opt => opt.MapFrom(c => c.ProgrammingLanguage.Name))

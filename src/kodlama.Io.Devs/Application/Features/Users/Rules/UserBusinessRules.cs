@@ -10,13 +10,6 @@ namespace Application.Features.Users.Rules
 {
     public class UserBusinessRules
     {
-        public void IsUserExists(User user)
-        {
-
-            if (user == null)
-            {
-                throw new BusinessException(BusinessConstants.UserNotExists);
-            }
-        }
+       
     }
 }

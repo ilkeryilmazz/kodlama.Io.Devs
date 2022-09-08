@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.ProgrammingTechnologies.Commands.UpdateProgrammingTechnology
 {
-    public class UpdateProgrammingTechnologyCommandValidator : AbstractValidator<UpdateProgammingTechnologyCommand>
+    public class UpdateProgrammingTechnologyCommandValidator : AbstractValidator<UpdateProgrammingTechnologyCommand>
     {
         public UpdateProgrammingTechnologyCommandValidator()
         {

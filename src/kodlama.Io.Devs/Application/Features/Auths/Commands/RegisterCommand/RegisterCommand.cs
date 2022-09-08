@@ -1,6 +1,6 @@
 ﻿using Application.Features.Auths.Dtos;
 using Application.Features.Auths.Rules;
-using Application.Features.Users.Commands.CreateUserCommand;
+
 using Application.Features.Users.Queries;
 using Application.Services.Repositories;
 using AutoMapper;
@@ -45,7 +45,8 @@ namespace Application.Features.Auths.Commands.RegisterCommand
                 
                 
                 User user = new User {Email = request.UserForRegister.Email, FirstName = request.UserForRegister.FirstName, LastName = request.UserForRegister.LastName, PasswordHash = passwordHash, PasswordSalt = passwordSalt, Status = true };
-                
+                User userToCheck = await _getUserByEmailQueryHandler.Handle(new GetUserByEmailQuery() { Email = request.UserForRegister.Email }, cancellationToken);
+                _authBusinessRules.IsUserAlreadyRegistrated(userToCheck);
                 User registeredUser= _userRepository.Add(user);
                 
                 _authBusinessRules.RegisteredUserCanNotBeNull(registeredUser);

@@ -18,6 +18,7 @@ namespace Persistence.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public DbSet<UserGithub> UserGithubs { get; set; }
         public BaseDbContext(IConfiguration configuration, DbContextOptions dbContextOptions):base(dbContextOptions)
         {
             Configuration = configuration;
@@ -39,6 +40,15 @@ namespace Persistence.Contexts
                 a.Property(p => p.Name).HasColumnName("Name");
 
                
+            });
+            modelBuilder.Entity<UserGithub>(a =>
+            {
+                a.ToTable("UserGithubs").HasKey(k => k.Id);
+                a.Property(p => p.Id).HasColumnName("Id");
+                a.Property(p => p.UserId).HasColumnName("UserId");
+                a.Property(p => p.GithubAddress).HasColumnName("GithubAddress");
+
+
             });
             modelBuilder.Entity<UserOperationClaim>(a =>
             {
@@ -63,6 +73,7 @@ namespace Persistence.Contexts
 
                 a.HasMany(c => c.UserOperationClaims);
                 a.HasMany(c => c.RefreshTokens);
+                a.HasOne(c => c.UserGithub);
 
             });
             modelBuilder.Entity<ProgrammingTechnology>(a =>
