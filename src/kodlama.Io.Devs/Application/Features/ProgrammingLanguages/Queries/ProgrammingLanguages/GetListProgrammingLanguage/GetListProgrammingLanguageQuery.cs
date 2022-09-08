@@ -34,6 +34,7 @@ namespace Application.Features.ProgrammingLanguages.Queries.ProgrammingLanguages
             public async Task<ProgrammingLanguageListModel> Handle(GetListProgrammingLanguageQuery request, CancellationToken cancellationToken)
             {
                 IPaginate<ProgrammingLanguage> programmingLanguages = await _programmingLanguageRepository.GetListAsync(index: request.PageRequest.Page, size: request.PageRequest.PageSize);
+                _programmingLanguageBusinessRules.ProgrammingLanguageListShouldExistWhenRequested(programmingLanguages);
                 ProgrammingLanguageListModel mappedProgrammingLanguageListModel = _mapper.Map<ProgrammingLanguageListModel>(programmingLanguages);
                 return mappedProgrammingLanguageListModel;
             

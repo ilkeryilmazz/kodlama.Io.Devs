@@ -28,5 +28,13 @@ namespace Application.Features.ProgrammingLanguages.Rules
                 throw new BusinessException(BusinessRuleConstants.ProgrammingLanguageAlreadyExists);
             }
         }
+        public void ProgrammingLanguageShouldExistWhenRequested(ProgrammingLanguage programmingLanguage)
+        {
+            if (programmingLanguage == null) throw new BusinessException(BusinessRuleConstants.ProgrammingLanguageNotExists);
+        }
+        public void ProgrammingLanguageListShouldExistWhenRequested(IPaginate<ProgrammingLanguage> programmingLanguages)
+        {
+            if (programmingLanguages.Items == null) throw new BusinessException(BusinessRuleConstants.ProgrammingLanguageListNotExists);
+        }
     }
 }

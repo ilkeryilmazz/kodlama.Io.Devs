@@ -14,8 +14,6 @@ namespace Application.Features.ProgrammingLanguages.Commands.DeleteProgrammingLa
     public class DeleteProgrammingLanguageCommand:IRequest<DeletedProgrammingLanguageDto>
     {
         public int Id { get; set; }
-       
-
         public class DeleteProgrammingLanguageCommandHandler : IRequestHandler<DeleteProgrammingLanguageCommand, DeletedProgrammingLanguageDto>
         {
             private readonly IMapper _mapper;

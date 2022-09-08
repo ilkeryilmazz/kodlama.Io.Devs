@@ -11,7 +11,7 @@ namespace Domain.Entities
     {
     
         public string Name { get; set; }
-
+        public virtual List<ProgrammingTechnology>? ProgrammingTechnologies { get; set; }
         public ProgrammingLanguage()
         {
 
