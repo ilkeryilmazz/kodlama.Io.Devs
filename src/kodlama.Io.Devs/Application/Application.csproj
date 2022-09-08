@@ -23,6 +23,7 @@
     <Folder Include="Features\Auths\Models\" />
     <Folder Include="Features\UserOperationClaims\Commands\" />
     <Folder Include="Features\UserOperationClaims\Dtos\" />
+    <Folder Include="Features\Users\Commands\" />
   </ItemGroup>
 
 </Project>
